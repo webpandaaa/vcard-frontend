@@ -1,0 +1,10 @@
+#main {
+    width: 100%;
+    padding: 30px 100px;
+    font-family: gilroy;
+  }
+
+  .Toastify{
+    height: 0;
+    padding: 0;
+  }
