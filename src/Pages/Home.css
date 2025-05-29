@@ -73,6 +73,7 @@ body {
   font-size: 15px;
   transition: all ease 0.3s;
   text-decoration: none;
+  font-family: "Poppins", sans-serif;
 }
 
 .button:hover {

@@ -34,7 +34,7 @@ body {
   flex: 1;
 }
 
-.form-header{
+.form-header {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
@@ -42,10 +42,9 @@ body {
   color: #ff6b35;
 }
 
-.form-header i{
+.form-header i {
   font-size: 20px;
   font-weight: 600;
-  
 }
 
 .form-section {
@@ -55,7 +54,6 @@ body {
   /* background-color: #fff7f0; */
   border-right: 2px solid #ffa726;
 }
-
 
 .scroll-form {
   display: flex;
@@ -72,6 +70,7 @@ input {
   border-radius: 8px;
   font-size: 14px;
   outline: none;
+  font-family: "Poppins", sans-serif;
 }
 
 input:focus {
@@ -521,79 +520,9 @@ textarea:focus {
   width: 50%;
 }
 
-@media (max-width: 648px) {
-  .live {
-    padding: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-   .preview-section {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-   .mobile-frame {
-    width: 100%;
-    height: 100%;
-    border-radius: 0px;
-    border: none;
-    padding: 0px;
-    background-color: #f2f2f2;
-    box-shadow: none;
-    overflow-y: auto;
-  }
-
-   .card-preview {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    align-items: center;
-    border-radius: 0px;
-    text-align: center;
-  }
-  .showcard {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .showcard .mobile-frame{
-    border-radius: 15px;
-  }
-
-  .showcard .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-top: 50px;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-  }
-  .create-card-container {
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-    font-family: "Poppins", sans-serif;
-    background-color: #fff;
-    color: #333;
-    margin-top: 20px;
-    border-radius: 20px;
-  }
-  .form-section {
-    width: 100%;
-    padding: 20px;
-    overflow-y: auto;
-    /* background-color: #fff7f0; */
-    border-right: 2px solid #ffa726;
-  }
-  .previewCard {
-    display: none;
-  }
+.card-type-selector {
+  width: 50%;
+  padding: 20px;
 }
 
 .qr-modal {
@@ -616,24 +545,20 @@ textarea:focus {
   text-align: center;
 }
 
-.card-type-selector{
-  width: 50%;
-  padding: 20px;
 
+
+.card-type-selector h2 {
+  color: #ff6b35;
 }
 
-.card-type-selector h2{
-  color: #ff6b35;  
-}
-
-.card-type-options{
+.card-type-options {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
   margin-top: 20px;
 }
 
-.type-card{
+.type-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -645,18 +570,16 @@ textarea:focus {
   transition: all 0.3s;
 }
 
-.type-card:hover #type{
+.type-card:hover #type {
   color: #ff6b35;
 }
 
-#type{
+#type {
   padding: 10px;
   margin-bottom: 20px;
   font-size: 20px;
-  transition: all ease .3s;
-   
+  transition: all ease 0.3s;
 }
-
 
 .business-card-container {
   background: #ffffff66;
@@ -727,10 +650,9 @@ textarea:focus {
   color: #ff6b35;
 }
 
-.forStartup{
+.forStartup {
   width: 100%;
 }
-
 
 .startup-card-container {
   background: #ffffff66;
@@ -769,7 +691,7 @@ textarea:focus {
   text-align: left;
 }
 
-.centerdiv{
+.centerdiv {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -792,8 +714,6 @@ textarea:focus {
   align-items: center;
   gap: 10px;
 }
-
-
 
 .tag-list {
   display: flex;
@@ -1006,7 +926,7 @@ textarea:focus {
   background-color: white;
   padding: 10px;
   border-radius: 8px;
-  text-align: center; 
+  text-align: center;
 }
 
 .popup-content {
@@ -1022,7 +942,6 @@ textarea:focus {
   font-size: 20px;
   color: #ff6b35;
   cursor: pointer;
-
 }
 
 .qr-code img {
@@ -1040,4 +959,91 @@ textarea:focus {
 .upi-info p {
   font-weight: bold;
   margin-top: 10px;
+}
+
+@media (max-width: 648px) {
+  .live {
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .preview-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+    border: none;
+    padding: 0px;
+    background-color: #f2f2f2;
+    box-shadow: none;
+    overflow-y: auto;
+  }
+
+  .card-preview {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    border-radius: 0px;
+    text-align: center;
+  }
+  .showcard {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .showcard .mobile-frame {
+    border-radius: 15px;
+  }
+
+  .showcard .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+  }
+  .create-card-container {
+    display: flex;
+    height: 130vh;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    background-color: #fff;
+    color: #333;
+    margin-top: 20px;
+    border-radius: 20px;
+  }
+  .card-type-selector {
+    width: 100%;
+    padding: 20px;
+  }
+  .form-section {
+    width: 100%;
+    padding: 20px;
+    overflow-y: auto;
+    /* background-color: #fff7f0; */
+    border-right: 2px solid #ffa726;
+  }
+  .previewCard {
+    display: none;
+  }
+
+  .form-group-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-direction: column;
+}
+  
 }
