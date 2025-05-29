@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import "./Home.css";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import LoginPopup from "../Components/LoginPopup";
+import "./Home.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Navbar = () => {
       if (!userId || !token) return;
 
       try {
-        const response = await axios.get(`http://localhost:8080/user/${userId}`, {
+        const response = await axios.get(`https://vcard-backend.onrender.com/user/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -57,7 +57,7 @@ const Navbar = () => {
     const fetchUserData = async () => {
       if (!userId || !token) return;
       try {
-        const response = await axios.get(`http://localhost:8080/user/${userId}`, {
+        const response = await axios.get(`https://vcard-backend.onrender.com/user/${userId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

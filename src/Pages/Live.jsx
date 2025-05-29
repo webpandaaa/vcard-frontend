@@ -1,9 +1,7 @@
-import "./CreateCard.css";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import CardPreview from "./CardPreview";
-import ShowCard from "./ShowCard";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import "./CreateCard.css";
 
 const Live = () => {
   const { username } = useParams();
@@ -25,7 +23,7 @@ const Live = () => {
     const fetchCardData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/card/${username}`
+          `https://vcard-backend.onrender.com/card/${username}`
         );
         console.log(response.data.card);
         setFormData(response.data.card);

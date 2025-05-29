@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import "./CreateCard.css";
-import CardPreview from "./CardPreview";
-import Navbar from "./Navbar";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import axios from "axios";
+import CardPreview from "./CardPreview";
+import "./CreateCard.css";
+import Navbar from "./Navbar";
 
 const CreateCard = () => {
   const [category, setCategory] = useState(null);
@@ -43,7 +43,7 @@ const CreateCard = () => {
 
       try {
         const response = await axios.get(
-          `http://localhost:8080/user/${userId}`,
+          `https://vcard-backend.onrender.com/user/${userId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -151,7 +151,7 @@ const CreateCard = () => {
         profileImageUrl: formData.profilePhoto,
       };
 
-      const response = await fetch("http://localhost:8080/card/create", {
+      const response = await fetch("https://vcard-backend.onrender.com/card/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -505,7 +505,7 @@ const CreateCard = () => {
 
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/card/exists/${formData.username}`
+        `https://vcard-backend.onrender.com/card/exists/${formData.username}`
       );
       if (data.exists) {
         toast.error("This Url Name is already taken. Please choose another.");
@@ -522,7 +522,7 @@ const CreateCard = () => {
     const receiptId = "1234567890";
 
     try {
-      const { data: order } = await axios.post("http://localhost:8080/order", {
+      const { data: order } = await axios.post("https://vcard-backend.onrender.com/order", {
         amount,
         currency,
         receipt: receiptId,
@@ -540,11 +540,11 @@ const CreateCard = () => {
         handler: async function (response) {
           try {
             const { data: validationResult } = await axios.post(
-              "http://localhost:8080/validate",
+              "https://vcard-backend.onrender.com/validate",
               response
             );
 
-            await axios.patch(`http://localhost:8080/user/${userId}`, {
+            await axios.patch(`https://vcard-backend.onrender.com/user/${userId}`, {
               subscriptionStatus: "active",
             });
 

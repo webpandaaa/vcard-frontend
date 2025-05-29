@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import "../Pages/Home.css";
 
@@ -14,8 +14,8 @@ const LoginPopup = ({ isOpen, onClose, onSuccess }) => {
 
   const handleAuth = async () => {
     const url = isSignup
-      ? "http://localhost:8080/user/signup"
-      : "http://localhost:8080/user/signin";
+      ? "https://vcard-backend.onrender.com/user/signup"
+      : "https://vcard-backend.onrender.com/user/signin";
 
     const body = isSignup ? { name, email, password } : { email, password };
 

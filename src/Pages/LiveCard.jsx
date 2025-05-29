@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
-import axios from "axios"; 
 import ShowCard from "./ShowCard";
 
 const LiveCard = () => {
@@ -12,7 +12,7 @@ const LiveCard = () => {
   useEffect(() => {
     const fetchCardData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/card/find/${id}`);
+        const response = await axios.get(`https://vcard-backend.onrender.com/card/find/${id}`);
         console.log(response.data.card);
         setFormData(response.data.card);
       } catch (error) {
