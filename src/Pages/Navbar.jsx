@@ -10,21 +10,35 @@ const Navbar = () => {
 
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
-  const [showName, setShowName] = useState("");  // You need this to show logged-in user's name
+  const [showName, setShowName] = useState(""); // You need this to show logged-in user's name
+  const [isMobile, setIsMobile] = useState(false);
 
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // adjust breakpoint as needed
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const fetchUserData = async () => {
       if (!userId || !token) return;
 
       try {
-        const response = await axios.get(`https://vcard-backend.onrender.com/user/${userId}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          `https://vcard-backend.onrender.com/user/${userId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
         if (response.data && response.data.user?.name) {
           setShowName(response.data.user.name);
@@ -57,11 +71,14 @@ const Navbar = () => {
     const fetchUserData = async () => {
       if (!userId || !token) return;
       try {
-        const response = await axios.get(`https://vcard-backend.onrender.com/user/${userId}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          `https://vcard-backend.onrender.com/user/${userId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         if (response.data && response.data.user?.name) {
           setShowName(response.data.user.name);
         }
@@ -101,9 +118,12 @@ const Navbar = () => {
             >
               <i className="ri-user-fill" style={{ fontSize: "20px" }}></i>
               <span style={{ fontSize: "14px", fontWeight: "bold" }}>
-                {showName}
+                {isMobile ? showName.split(" ")[0] : showName}
               </span>
-              <i className="ri-arrow-down-s-line" style={{ fontSize: "16px" }}></i>
+              <i
+                className="ri-arrow-down-s-line"
+                style={{ fontSize: "16px" }}
+              ></i>
             </div>
 
             {showUserDropdown && (
